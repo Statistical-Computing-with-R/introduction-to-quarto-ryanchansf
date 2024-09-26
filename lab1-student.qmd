@@ -83,3 +83,18 @@ Now, run this code chunk! You should see two side-by-side boxplots, one plot com
 **Question 8** -- Specify in the code chunk options that these boxplots should be **center aligned**.
 
 **Question 9** -- Specify a **figure caption** for the boxplots (using a code-chunk option).
+
+# T-test for Mean Tooth Length across Supplement Delivery Methods
+
+```{r}
+#| echo: true
+
+# load the ToothGrowth dataset
+data("ToothGrowth")
+
+t_test_res <- t.test(len ~ supp, data = ToothGrowth, alternative = "two.sided", var.equal = FALSE)
+
+t_test_res
+```
+1. Conclusion: Since the p-value = 0.06063, which is greater than 0.05, we fail to reject the null hypothesis that the treatment mean tooth length for the OJ supplement delivery method is the same as the treatment mean tooth length for the VC supplement delivery method.
+2. We are 95% confident that the true difference in tooth length between the OJ and the VC supplement methods is between -0.1710156 and 7.5710156 mm.

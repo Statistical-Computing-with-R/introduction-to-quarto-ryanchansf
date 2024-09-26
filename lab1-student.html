@@ -3159,7 +3159,7 @@ vertical-align: -.125em;
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> dose, <span class="at">y =</span> len)) <span class="sc">+</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Dose of Supplement (mg/day)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Length of Teeth (mm)&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -3189,6 +3189,34 @@ vertical-align: -.125em;
 <p><strong>Question 8</strong> – Specify in the code chunk options that these boxplots should be <strong>center aligned</strong>.</p>
 <p><strong>Question 9</strong> – Specify a <strong>figure caption</strong> for the boxplots (using a code-chunk option).</p>
 </section>
+</section>
+<section id="t-test-for-mean-tooth-length-across-supplement-delivery-methods" class="level1">
+<h1>T-test for Mean Tooth Length across Supplement Delivery Methods</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the ToothGrowth dataset</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;ToothGrowth&quot;</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>t_test_res <span class="ot">&lt;-</span> <span class="fu">t.test</span>(len <span class="sc">~</span> supp, <span class="at">data =</span> ToothGrowth, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>t_test_res</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  len by supp
+t = 1.9153, df = 55.309, p-value = 0.06063
+alternative hypothesis: true difference in means between group OJ and group VC is not equal to 0
+95 percent confidence interval:
+ -0.1710156  7.5710156
+sample estimates:
+mean in group OJ mean in group VC 
+        20.66333         16.96333 </code></pre>
+</div>
+</div>
+<ol type="1">
+<li>Conclusion: Since the p-value = 0.06063, which is greater than 0.05, we fail to reject the null hypothesis that the treatment mean tooth length for the OJ supplement delivery method is the same as the treatment mean tooth length for the VC supplement delivery method.</li>
+<li>We are 95% confident that the true difference in tooth length between the OJ and the VC supplement methods is between -0.1710156 and 7.5710156 mm.</li>
+</ol>
 </section>
 
 </main>
