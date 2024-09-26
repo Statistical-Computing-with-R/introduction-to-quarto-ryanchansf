@@ -44,7 +44,7 @@ summary(ToothGrowth)
 
 *The two supplement delivery methods include OJ (orange juice) and VC (vitamin C).*
 
-*`ToothGrowth` is a data frame with 60 observations and 3 variables.
+\*`ToothGrowth` is a data frame with 60 observations and 3 variables.
 
 **Question 5** -- *Before* the code chunk, change the "Running the Provided Code" section header to a header that better describes the contents of this section (e.g., Tooth Growth Dataset).
 
@@ -55,8 +55,24 @@ summary(ToothGrowth)
 ```{r}
 #| echo: true
 #| label: creating-a-plot
+#| layout-ncol: 2
+#| fig-cap: "Graphs"
+#| fig-subcap:
+#| - "Tooth Length vs. Supplement"
+#| - "Tooth Length vs. Dose Supplement"
 
-plot(pressure)
+library(tidyverse)
+
+ggplot(data = ToothGrowth, 
+       mapping = aes(x = supp, y = len)) +
+  geom_boxplot() +
+  labs(x = "Supplement", y = "Length of Teeth (mm)")
+
+ToothGrowth %>% 
+  mutate(dose = as.factor(dose)) %>% 
+  ggplot(mapping = aes(x = dose, y = len)) +
+  geom_boxplot() +
+  labs(x = "Dose of Supplement (mg/day)", y = "Length of Teeth (mm)")
 ```
 
 Now, run this code chunk! You should see two side-by-side boxplots, one plot comparing tooth length between the two supplement delivery methods and one plot comparing tooth length between the three different dosages uses.
