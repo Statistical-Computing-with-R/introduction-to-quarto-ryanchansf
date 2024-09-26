@@ -57,6 +57,7 @@ summary(ToothGrowth)
 #| label: creating-a-plot
 #| layout-ncol: 2
 #| fig-cap: "Graphs"
+#| fig-align: "center"
 #| fig-subcap:
 #| - "Tooth Length vs. Supplement"
 #| - "Tooth Length vs. Dose Supplement"
