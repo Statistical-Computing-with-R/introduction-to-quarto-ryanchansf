@@ -2,7 +2,11 @@
 title: "Lab 1: Introduction to Quarto"
 author: "Ryan Chan"
 date: "9/26/24"
-format: html
+format:
+  html:
+    toc: true
+    code-fold: true
+    theme: lux
 editor: source
 embed-resources: true
 execute:
@@ -56,7 +60,7 @@ summary(ToothGrowth)
 #| echo: true
 #| label: creating-a-plot
 #| layout-ncol: 2
-#| fig-cap: "Graphs"
+#| fig-cap: "Guinea Pig Tooth Growth Graphs"
 #| fig-align: "center"
 #| fig-subcap:
 #| - "Tooth Length vs. Supplement"
