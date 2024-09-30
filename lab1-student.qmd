@@ -65,6 +65,8 @@ summary(ToothGrowth)
 #| fig-subcap:
 #| - "Tooth Length vs. Supplement"
 #| - "Tooth Length vs. Dose Supplement"
+#| warning: false
+#| message: false
 
 library(tidyverse)
 
